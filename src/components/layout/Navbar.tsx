@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import { Button } from "../ui/button";
+import { useNavigate } from "react-router-dom";
+
 
 export const Navbar = () => {
+    const navigate = useNavigate();
+
   return (
     <header className="w-full border-b bg-white">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -22,8 +26,8 @@ export const Navbar = () => {
 
         {/* Login / Signup */}
         <div className="hidden md:flex gap-3">
-          <Button variant="outline">Login</Button>
-          <Button>Sign Up</Button>
+          <Button onClick={ () => navigate("/signin")} variant="outline">Login</Button>
+          <Button onClick={ () => navigate("/signup")}>Sign Up</Button>
         </div>
 
         {/* Mobile Menu Button */}

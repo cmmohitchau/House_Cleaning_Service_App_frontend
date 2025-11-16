@@ -15,7 +15,6 @@ const initialState: AuthState = {
   error: null,
 };
 
-// Login
 export const loginUser = createAsyncThunk(
   "auth/login",
   async (credentials: { email: string; password: string }, { rejectWithValue }) => {
@@ -27,7 +26,6 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-// Register
 export const registerUser = createAsyncThunk(
   "auth/register",
   async (data: any, { rejectWithValue }) => {
@@ -67,7 +65,6 @@ const authSlice = createSlice({
         state.error = action.payload as string;
       })
 
-      // Register
       .addCase(registerUser.pending, (state) => {
         state.loading = true;
         state.error = null;

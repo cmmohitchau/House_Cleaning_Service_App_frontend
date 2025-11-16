@@ -1,13 +1,16 @@
 import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { Rotate3D } from "lucide-react";
 
 // Lazy-loaded pages
 const Home = lazy(() => import("../pages/Home/Home"));
 const Services = lazy(() => import("../pages/Services/Services"));
 const ServiceDetails = lazy(() => import("../pages/ServiceDetails/ServiceDetails"));
 const Booking = lazy(() => import("../pages/Booking/Booking"));
-const Profile = lazy(() => import("../pages/Profile/Profile"));
-const AdminDashboard = lazy(() => import("../pages/Admin/AdminDashboard"));
+const Signin = lazy( () => import("@/features/auth/components/LoginPage"));
+const Signup = lazy( () => import("@/features/auth/components/RegisterPage"));
+// const Profile = lazy(() => import("../pages/Profile/Profile"));
+// const AdminDashboard = lazy(() => import("../pages/Admin/AdminDashboard"));
 
 export default function RoutesConfig() {
   return (
@@ -20,10 +23,15 @@ export default function RoutesConfig() {
 
         <Route path="/booking" element={<Booking />} />
 
+        <Route path="/signin" element={<Signin />} />
+
+        <Route path="/signup" element={<Signup />} />
+{/*     
+
         <Route path="/profile" element={<Profile />} />
 
         {/* Optional Admin route */}
-        <Route path="/admin" element={<AdminDashboard />} />
+        {/* <Route path="/admin" element={<AdminDashboard />} /> */} 
 
         {/* 404 */}
         <Route
